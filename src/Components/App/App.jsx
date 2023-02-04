@@ -6,13 +6,18 @@ import {
   VideoCameraOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, theme } from 'antd';
+import { Navigate, NavLink, useRoutes } from 'react-router-dom';
+import router from '../../routes/router'
 import React, { useState } from 'react';
 const { Header, Sider, Content } = Layout;
 const App = () => {
   const [collapsed, setCollapsed] = useState(false);
+
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
+  const element = useRoutes(router);
   return (
     <div>
       <Layout style={{height:'100vh'}}>
@@ -61,7 +66,8 @@ const App = () => {
               background: colorBgContainer,
             }}
           >
-            Content
+            {/* 注册路由 */}
+            {element}
           </Content>
         </Layout>
       </Layout>
